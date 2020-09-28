@@ -5,15 +5,17 @@
 	<div class="row">
 		<!-- Latest Posts -->
 		<main class="posts-listing col-lg-8">
+			<h1>Feedback</h1>
+			<hr>
 			<div class="container">
 				<div class="row">
 					<!-- post -->
 					{% if posts %}
 						{% for post in posts %}
-							<div class="post col-xl-6">
+							<div class="post col-xl-3">
 								<div class="post-thumbnail">
 									<a href="{% url 'post_detail' post.slug %}">
-									<img src="{{ post.thumbnail.url }}" alt="..." class="img-fluid" width="640" height="426"></a>
+									<img src="{{ post.thumbnail.url }}" alt="..." width="185" height="250"></a>
 								</div>
 								<div class="post-details">
 									<div class="post-meta d-flex justify-content-between">
@@ -27,7 +29,7 @@
 									<a href="{% url 'post_detail' post.slug %}">
 										<h3 class="h4 text-capitalize">{{ post.title }}</h3>
 									</a>
-									<p class="text-muted">{{ post.overview|truncatewords:27 }}<a href="{% url 'post_detail' post.slug %}"><u>continue reading &rarr;</u></a></p>
+									<p class="text-muted">{{ post.overview|truncatewords:10 }}<a href="{% url 'post_detail' post.slug %}"><u>continue reading &rarr;</u></a></p>
 									<footer class="post-footer d-flex align-items-center">
 										<div class="author d-flex align-items-center flex-wrap">
 											<div class="avatar">

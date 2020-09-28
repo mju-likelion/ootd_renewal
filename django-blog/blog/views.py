@@ -19,7 +19,7 @@ class PostCategoryView(ListView):
     template_name = 'blog/category.html'
     context_object_name = 'categories'
     ordering = ['-date_created']
-    paginate_by = 6
+    paginate_by = 8
 
     def get_queryset(self):
         self.category = get_object_or_404(Category, slug=self.kwargs['slug'])
@@ -39,7 +39,7 @@ class PostCategoryView(ListView):
 class SearchListView(ListView):
     template_name = 'blog/search_result.html'
     context_object_name = 'search_queryset'
-    paginate_by = 6
+    paginate_by = 8
 
     def get_context_data(self, *args, **kwargs):
         category_count = get_category_count()
@@ -67,7 +67,7 @@ class PostListView(ListView):
     template_name = 'blog/index.html'
     context_object_name = 'posts'
     ordering = ['-timestamp']
-    paginate_by = 6
+    paginate_by = 8
 
     def get_context_data(self, *args, **kwargs):
         category_count = get_category_count()
@@ -104,7 +104,7 @@ class PostDetailView(DetailView):
             form.save()
             return redirect(reverse('post_detail', kwargs={'slug': post.slug}))
 
-class PostCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+class PostCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView): #edit
     model = Post
     template_name = 'blog/post_form.html'
     form_class = PostForm
