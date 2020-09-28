@@ -104,7 +104,7 @@ class PostDetailView(DetailView):
             form.save()
             return redirect(reverse('post_detail', kwargs={'slug': post.slug}))
 
-class PostCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView): #edit
+class PostCreateView(LoginRequiredMixin, CreateView): #edit
     model = Post
     template_name = 'blog/post_form.html'
     form_class = PostForm

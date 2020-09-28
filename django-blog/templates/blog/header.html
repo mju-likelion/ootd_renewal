@@ -27,7 +27,7 @@
 			<!-- Navbar Menu -->
 			<div id="navbarcollapse" class="collapse navbar-collapse">
 				<ul class="navbar-nav ml-auto">
-					{% if user %}
+					{% if user.is_superuser %}
 					<li class="nav-item"><a href="{% url 'blog-home' %}" class="nav-link {% if request.resolver_match.url_name == 'blog-home' %}active{% endif %}">Home</a>
 					</li>
 					<li class="nav-item"><a href="{% url 'post_create' %}" class="nav-link {% if request.resolver_match.url_name == 'post_create' %}active{% endif %}">Create Post</a>
@@ -47,6 +47,8 @@
 					<li class="nav-item"><a href="{% url 'blog-home' %}" class="nav-link {% if request.resolver_match.url_name == 'blog-home' %}active{% endif %}">Home</a>
 					</li>
 					<li class="nav-item"><a href="{% url 'profile' %}" class="nav-link {% if request.resolver_match.url_name == 'profile' %}active{% endif %}">Profile</a>
+					</li>
+					<li class="nav-item"><a href="{% url 'post_create' %}" class="nav-link {% if request.resolver_match.url_name == 'post_create' %}active{% endif %}">Create Post</a>
 					</li>
 					<li class="nav-item"><a href="{% url 'logout' %}" class="nav-link ">Logout</a>
 					</li>
